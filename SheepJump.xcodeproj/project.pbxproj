@@ -14,6 +14,26 @@
 		01005FD31C6C21C2002C7E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01005FD11C6C21C2002C7E31 /* Main.storyboard */; };
 		01005FD51C6C21C2002C7E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01005FD41C6C21C2002C7E31 /* Assets.xcassets */; };
 		01005FD81C6C21C2002C7E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01005FD61C6C21C2002C7E31 /* LaunchScreen.storyboard */; };
+		01005FE01C6C29DA002C7E31 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01005FDF1C6C29DA002C7E31 /* MainMenuViewController.swift */; };
+		01005FE21C6C2B6A002C7E31 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01005FE11C6C2B6A002C7E31 /* MainMenuScene.sks */; };
+		01005FE41C6C344B002C7E31 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01005FE31C6C344B002C7E31 /* MainMenuScene.swift */; };
+		0112D0371C9DA76E00FBE66F /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112D0361C9DA76E00FBE66F /* GameOver.swift */; };
+		0112D0391C9E4B2900FBE66F /* explosion1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0112D0381C9E4B2900FBE66F /* explosion1.wav */; };
+		011BB7281C9B9CAA0050C3E2 /* PipeDream.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 011BB7271C9B9CAA0050C3E2 /* PipeDream.ttf */; };
+		015996151C6EEA05000257A2 /* bleat_alt01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0159960F1C6EEA05000257A2 /* bleat_alt01.wav */; };
+		015996161C6EEA05000257A2 /* bleat05.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996101C6EEA05000257A2 /* bleat05.wav */; };
+		015996171C6EEA05000257A2 /* bleat04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996111C6EEA05000257A2 /* bleat04.wav */; };
+		015996181C6EEA05000257A2 /* bleat03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996121C6EEA05000257A2 /* bleat03.wav */; };
+		015996191C6EEA05000257A2 /* bleat02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996131C6EEA05000257A2 /* bleat02.wav */; };
+		0159961A1C6EEA05000257A2 /* bleat01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996141C6EEA05000257A2 /* bleat01.wav */; };
+		0159961C1C6FE28F000257A2 /* Raft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159961B1C6FE28F000257A2 /* Raft.swift */; };
+		0159961E1C6FE2E2000257A2 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159961D1C6FE2E2000257A2 /* GameSprite.swift */; };
+		015996201C70090D000257A2 /* Sheep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159961F1C70090D000257A2 /* Sheep.swift */; };
+		015996221C7116C7000257A2 /* water-splash01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996211C7116C7000257A2 /* water-splash01.wav */; };
+		015996241C7133FF000257A2 /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015996231C7133FF000257A2 /* Water.swift */; };
+		015996261C715AA4000257A2 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 015996251C715AA4000257A2 /* coin.wav */; };
+		015996281C715DCA000257A2 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015996271C715DCA000257A2 /* HUD.swift */; };
+		01679CB41C9F81AD002DB631 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01679CB31C9F81AD002DB631 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +46,26 @@
 		01005FD41C6C21C2002C7E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01005FD71C6C21C2002C7E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01005FD91C6C21C2002C7E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01005FDF1C6C29DA002C7E31 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		01005FE11C6C2B6A002C7E31 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		01005FE31C6C344B002C7E31 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		0112D0361C9DA76E00FBE66F /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		0112D0381C9E4B2900FBE66F /* explosion1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion1.wav; sourceTree = "<group>"; };
+		011BB7271C9B9CAA0050C3E2 /* PipeDream.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PipeDream.ttf; sourceTree = "<group>"; };
+		0159960F1C6EEA05000257A2 /* bleat_alt01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat_alt01.wav; sourceTree = "<group>"; };
+		015996101C6EEA05000257A2 /* bleat05.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat05.wav; sourceTree = "<group>"; };
+		015996111C6EEA05000257A2 /* bleat04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat04.wav; sourceTree = "<group>"; };
+		015996121C6EEA05000257A2 /* bleat03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat03.wav; sourceTree = "<group>"; };
+		015996131C6EEA05000257A2 /* bleat02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat02.wav; sourceTree = "<group>"; };
+		015996141C6EEA05000257A2 /* bleat01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bleat01.wav; sourceTree = "<group>"; };
+		0159961B1C6FE28F000257A2 /* Raft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raft.swift; sourceTree = "<group>"; };
+		0159961D1C6FE2E2000257A2 /* GameSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
+		0159961F1C70090D000257A2 /* Sheep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sheep.swift; sourceTree = "<group>"; };
+		015996211C7116C7000257A2 /* water-splash01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "water-splash01.wav"; sourceTree = "<group>"; };
+		015996231C7133FF000257A2 /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
+		015996251C715AA4000257A2 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		015996271C715DCA000257A2 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		01679CB31C9F81AD002DB631 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01679CB41C9F81AD002DB631 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +83,7 @@
 		01005FBD1C6C21C2002C7E31 = {
 			isa = PBXGroup;
 			children = (
+				01679CB31C9F81AD002DB631 /* iAd.framework */,
 				01005FC81C6C21C2002C7E31 /* SheepJump */,
 				01005FC71C6C21C2002C7E31 /* Products */,
 			);
@@ -58,16 +100,43 @@
 		01005FC81C6C21C2002C7E31 /* SheepJump */ = {
 			isa = PBXGroup;
 			children = (
+				011BB7271C9B9CAA0050C3E2 /* PipeDream.ttf */,
 				01005FC91C6C21C2002C7E31 /* AppDelegate.swift */,
+				01005FD41C6C21C2002C7E31 /* Assets.xcassets */,
 				01005FCB1C6C21C2002C7E31 /* GameScene.sks */,
 				01005FCD1C6C21C2002C7E31 /* GameScene.swift */,
+				0159961D1C6FE2E2000257A2 /* GameSprite.swift */,
 				01005FCF1C6C21C2002C7E31 /* GameViewController.swift */,
-				01005FD11C6C21C2002C7E31 /* Main.storyboard */,
-				01005FD41C6C21C2002C7E31 /* Assets.xcassets */,
-				01005FD61C6C21C2002C7E31 /* LaunchScreen.storyboard */,
+				015996271C715DCA000257A2 /* HUD.swift */,
 				01005FD91C6C21C2002C7E31 /* Info.plist */,
+				01005FD61C6C21C2002C7E31 /* LaunchScreen.storyboard */,
+				01005FD11C6C21C2002C7E31 /* Main.storyboard */,
+				01005FE11C6C2B6A002C7E31 /* MainMenuScene.sks */,
+				01005FE31C6C344B002C7E31 /* MainMenuScene.swift */,
+				01005FDF1C6C29DA002C7E31 /* MainMenuViewController.swift */,
+				0159961B1C6FE28F000257A2 /* Raft.swift */,
+				0159961F1C70090D000257A2 /* Sheep.swift */,
+				0159960E1C6EE9D8000257A2 /* Sounds */,
+				015996231C7133FF000257A2 /* Water.swift */,
+				0112D0361C9DA76E00FBE66F /* GameOver.swift */,
 			);
 			path = SheepJump;
+			sourceTree = "<group>";
+		};
+		0159960E1C6EE9D8000257A2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0112D0381C9E4B2900FBE66F /* explosion1.wav */,
+				015996251C715AA4000257A2 /* coin.wav */,
+				015996211C7116C7000257A2 /* water-splash01.wav */,
+				0159960F1C6EEA05000257A2 /* bleat_alt01.wav */,
+				015996101C6EEA05000257A2 /* bleat05.wav */,
+				015996111C6EEA05000257A2 /* bleat04.wav */,
+				015996121C6EEA05000257A2 /* bleat03.wav */,
+				015996131C6EEA05000257A2 /* bleat02.wav */,
+				015996141C6EEA05000257A2 /* bleat01.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,10 +198,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015996151C6EEA05000257A2 /* bleat_alt01.wav in Resources */,
 				01005FCC1C6C21C2002C7E31 /* GameScene.sks in Resources */,
+				011BB7281C9B9CAA0050C3E2 /* PipeDream.ttf in Resources */,
+				0159961A1C6EEA05000257A2 /* bleat01.wav in Resources */,
 				01005FD81C6C21C2002C7E31 /* LaunchScreen.storyboard in Resources */,
+				015996171C6EEA05000257A2 /* bleat04.wav in Resources */,
 				01005FD51C6C21C2002C7E31 /* Assets.xcassets in Resources */,
+				015996161C6EEA05000257A2 /* bleat05.wav in Resources */,
+				015996181C6EEA05000257A2 /* bleat03.wav in Resources */,
+				0112D0391C9E4B2900FBE66F /* explosion1.wav in Resources */,
 				01005FD31C6C21C2002C7E31 /* Main.storyboard in Resources */,
+				01005FE21C6C2B6A002C7E31 /* MainMenuScene.sks in Resources */,
+				015996261C715AA4000257A2 /* coin.wav in Resources */,
+				015996221C7116C7000257A2 /* water-splash01.wav in Resources */,
+				015996191C6EEA05000257A2 /* bleat02.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +223,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01005FE41C6C344B002C7E31 /* MainMenuScene.swift in Sources */,
+				015996281C715DCA000257A2 /* HUD.swift in Sources */,
+				01005FE01C6C29DA002C7E31 /* MainMenuViewController.swift in Sources */,
 				01005FCE1C6C21C2002C7E31 /* GameScene.swift in Sources */,
+				015996201C70090D000257A2 /* Sheep.swift in Sources */,
+				015996241C7133FF000257A2 /* Water.swift in Sources */,
+				0159961E1C6FE2E2000257A2 /* GameSprite.swift in Sources */,
+				0112D0371C9DA76E00FBE66F /* GameOver.swift in Sources */,
 				01005FD01C6C21C2002C7E31 /* GameViewController.swift in Sources */,
+				0159961C1C6FE28F000257A2 /* Raft.swift in Sources */,
 				01005FCA1C6C21C2002C7E31 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +381,7 @@
 				01005FDE1C6C21C2002C7E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
