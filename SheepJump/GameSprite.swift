@@ -10,5 +10,5 @@ import SpriteKit
 
 protocol GameSprite {
     
-    func spawn(parentNode: SKNode, position: CGPoint, size: CGSize?)
+    func spawn(_ parentNode: SKNode, position: CGPoint, size: CGSize?)
 }

@@ -25,10 +25,10 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
             
-            self.canDisplayBannerAds = true
-            loadAds()
+           // self.canDisplayBannerAds = true
+            //loadAds()
             
             skView.presentScene(scene)
             
@@ -37,33 +37,33 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
     
     func loadAds(){
         //iAd banner
-        let banner = ADBannerView(frame: CGRectZero)
+        let banner = ADBannerView(frame: CGRect.zero)
         banner.delegate = self
         // banner.sizeToFit()
-        banner.hidden = false
+        banner.isHidden = false
         banner.center = CGPoint(x: banner.center.x, y: view.bounds.size.height - banner.frame.size.height / 2)
         view.addSubview(banner)
     }
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        if(banner.bannerLoaded){
-            banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height)
+    func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: Error!) {
+        if(banner.isBannerLoaded){
+            banner.frame = banner.frame.offsetBy(dx: 0, dy: banner.frame.size.height)
         }
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height)
+    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
+        banner.frame = banner.frame.offsetBy(dx: 0, dy: banner.frame.size.height)
     }
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
         } else {
-            return .All
+            return .all
         }
     }
 
@@ -72,7 +72,7 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }

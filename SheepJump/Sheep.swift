@@ -9,7 +9,7 @@
 import SpriteKit
 
 class Sheep : SKSpriteNode, GameSprite {
-    func spawn(parentNode: SKNode, position: CGPoint, size: CGSize?) {
+    func spawn(_ parentNode: SKNode, position: CGPoint, size: CGSize?) {
         self.texture = SKTexture(imageNamed: "Sheep")
         self.zPosition = 3
         self.name = "Sheep"
@@ -30,10 +30,10 @@ class Sheep : SKSpriteNode, GameSprite {
         self.physicsBody?.allowsRotation = false
         parentNode.addChild(self)
         // return
-        let right = SKAction.moveToX(CGFloat(130), duration: NSTimeInterval(2.35))
-        self.runAction(right, completion: {
+        let right = SKAction.moveTo(x: CGFloat(130), duration: TimeInterval(2.35))
+        self.run(right, completion: {
             self.physicsBody?.affectedByGravity = true
-            self.physicsBody?.applyImpulse(CGVectorMake(150, 400))
+            self.physicsBody?.applyImpulse(CGVector(dx: 150, dy: 400))
             
         })
     }
@@ -45,11 +45,11 @@ class Sheep : SKSpriteNode, GameSprite {
             fileName = "bleat_alt01.wav"
         }
         let soundAction = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
-        self.runAction(soundAction)
+        self.run(soundAction)
     }
     
-    func walk(pointsToWalk:UInt, completion: (()-> Void)?) {
-        let action = SKAction.moveByX(CGFloat(pointsToWalk), y: 0, duration: 3)
-        self.runAction(action, completion: completion!)
+    func walk(_ pointsToWalk:UInt, completion: (()-> Void)?) {
+        let action = SKAction.moveBy(x: CGFloat(pointsToWalk), y: 0, duration: 3)
+        self.run(action, completion: completion!)
     }
 }

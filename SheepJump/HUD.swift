@@ -11,33 +11,38 @@ import SpriteKit
 class HUD{
     var livesNode: SKLabelNode
     var currentLives : Int
-    
+
     var currentScore = 0
     var score:SKLabelNode
-    init(parentNode:SKNode, lives: Int){
+    init(parentNode:SKNode, lives: Int) {
         currentLives = lives
-        score = SKLabelNode(text:"Score: " + String(currentScore))
+        score = SKLabelNode(text:"Score: \(currentScore)")
         score.zPosition = 2
         score.fontSize = 40
-       // score.fontColor = UIColor.blackColor()
         score.fontName = "PipeDream"
-        score.position = CGPointMake(850, 650)
+        score.position = CGPoint(x: 850, y: 650)
         
-        livesNode = SKLabelNode(text: "Lives: " + String(currentLives))
+        livesNode = SKLabelNode(text: "Lives: \(currentLives)")
         livesNode.zPosition = 2
         livesNode.fontSize = 40
         livesNode.fontName = "PipeDream"
-        livesNode.position = CGPointMake(200, 650)
+        livesNode.position = CGPoint(x: 200, y: 650)
         
         parentNode.addChild(score)
         parentNode.addChild(livesNode)
     }
     
     func incrementScore() {
-        score.text = "Score: " + String(++currentScore)
+        currentScore += 1
+        score.text = "Score: \(currentScore)"
     }
     
-    func decrementLives() {
-        livesNode.text = "Lives: " + String(--currentLives)
+    func decrementLives() -> Void {
+        if(currentLives == 0) {
+            return
+        }
+        
+        currentLives -= 1
+        livesNode.text = "Lives: \(currentLives)" 
     }
 }

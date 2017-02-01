@@ -9,10 +9,10 @@
 import SpriteKit
 
 class Raft : SKSpriteNode, GameSprite {
-    func spawn(parentNode: SKNode, position: CGPoint, size: CGSize?) {
+    func spawn(_ parentNode: SKNode, position: CGPoint, size: CGSize?) {
       
         //texture = SKTexture(imageNamed: "Sheep")
-        self.color = UIColor.redColor()
+        self.color = UIColor.red
         
         self.zPosition = 5
         self.name = "Raft"
@@ -20,7 +20,7 @@ class Raft : SKSpriteNode, GameSprite {
         self.position = position
         //collision
         let pointTopRight = CGPoint(x: size!.width, y: 0)
-        self.physicsBody = SKPhysicsBody(edgeFromPoint: CGPointMake(-(self.size.width/2), 0), toPoint: pointTopRight)
+        self.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: -(self.size.width/2), y: 0), to: pointTopRight)
         self.physicsBody?.categoryBitMask = PhysicsCategory.raft.rawValue
         
         parentNode.addChild(self)

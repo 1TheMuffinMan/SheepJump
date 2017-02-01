@@ -7,6 +7,31 @@
 //
 
 import SpriteKit
+import NotificationCenter
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     let world = SKNode()
@@ -16,11 +41,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var sheeps = [SKNode]()
     var lives = 3
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self
         scene?.addChild(world)
-        scene?.physicsWorld.gravity = CGVectorMake(0, -10)
+        scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        scene?.scaleMode = SKSceneScaleMode.fill;
         /* Setup background */
         let background = SKSpriteNode(imageNamed: "Main Background.png")
         background.zPosition = 1;
@@ -33,56 +59,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Water().spawn(world, position: CGPoint(x: frame.size.width/2, y: 20), size: nil)
         setupGround()
         
-        let duration = SKAction.waitForDuration(1.5)
-        let spawn = SKAction.runBlock {
+        let duration = SKAction.wait(forDuration: Double(Int(arc4random_uniform(3) +  2)))
+        let spawn = SKAction.run {
             let sheep = Sheep()
             self.sheeps.append(sheep)
             sheep.spawn(self.world, position: CGPoint(x: -60, y: 500), size: nil)
         }
+        
         let sequence = SKAction.sequence([duration, spawn])
-        self.runAction(SKAction.repeatActionForever(sequence))
+        self.run(SKAction.repeatForever(sequence))
         
         raft.spawn(world, position:CGPoint(x: (world.scene?.size.width)!/2, y: 50) , size: CGSize(width: 120, height: 100))
         hud = HUD(parentNode: world, lives: 3)
     }
     
     func setupGround(){
-        let leftGround = SKSpriteNode(color: UIColor.greenColor(), size: CGSize(width: 200, height: 10))
-        leftGround.hidden = true
+        let leftGround = SKSpriteNode(color: UIColor.green, size: CGSize(width: 200, height: 10))
+        leftGround.isHidden = true
         leftGround.position = CGPoint(x: -45, y: 461)
         leftGround.zPosition = 10
         leftGround.anchorPoint = CGPoint(x:0, y:0)
         let pointTopRight = CGPoint(x: leftGround.size.width, y: 0)
-        leftGround.physicsBody = SKPhysicsBody(edgeFromPoint: CGPointZero, toPoint: pointTopRight)
+        leftGround.physicsBody = SKPhysicsBody(edgeFrom: CGPoint.zero, to: pointTopRight)
         world.addChild(leftGround)
         
-        let rightGround = SKSpriteNode(color: UIColor.redColor(), size: CGSizeMake(125, 1))
-        rightGround.hidden = true
-        rightGround.position = CGPointMake((world.scene?.size.width)! - 125, 461)
-        rightGround.anchorPoint = CGPointMake(0, 0)
+        let rightGround = SKSpriteNode(color: UIColor.red, size: CGSize(width: 125, height: 1))
+        rightGround.isHidden = true
+        rightGround.position = CGPoint(x: (world.scene?.size.width)! - 125, y: 461)
+        rightGround.anchorPoint = CGPoint(x: 0, y: 0)
         rightGround.zPosition = 10
-        rightGround.physicsBody = SKPhysicsBody(edgeFromPoint: CGPointZero, toPoint: CGPointMake(rightGround.size.width, 0))
+        rightGround.physicsBody = SKPhysicsBody(edgeFrom: CGPoint.zero, to: CGPoint(x: rightGround.size.width, y: 0))
         rightGround.physicsBody?.categoryBitMask = PhysicsCategory.rightGround.rawValue
         world.addChild(rightGround)
     }
     
     func splash(){
         let action = SKAction.playSoundFileNamed("water-splash01.wav", waitForCompletion: false)
-        self.runAction(action);
+        self.run(action);
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if(selectedNode == nil){
             return
         }
         
         let touch = touches.first
-        let location  = touch?.locationInNode(world)
+        let location  = touch?.location(in: world)
         let node = selectedNode
         
-        let previousLocation = touch!.previousLocationInNode(world)
+        let previousLocation = touch!.previousLocation(in: world)
         let diff = location!.x - previousLocation.x;
-        let newPosition = CGPointMake(node!.position.x + diff, node!.position.y);
+        let newPosition = CGPoint(x: node!.position.x + diff, y: node!.position.y);
         if(newPosition.x < 163 || newPosition.x > 860){
             return
         }
@@ -90,12 +117,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch = touches.first!
-        let viewTouchLocation = touch.locationInView(self.view)
-        let sceneTouchPoint = scene?.convertPointFromView(viewTouchLocation)
-        let touchedNodes = scene?.nodesAtPoint(sceneTouchPoint!)
+        let viewTouchLocation = touch.location(in: self.view)
+        let sceneTouchPoint = scene?.convertPoint(fromView: viewTouchLocation)
+        let touchedNodes = scene?.nodes(at: sceneTouchPoint!)
         for touchedNode in touchedNodes! {
             if(touchedNode == raft){
                 selectedNode = raft;
@@ -104,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         selectedNode = nil
     }
     
@@ -125,9 +152,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             //sheep crossed
             if((sheep.position.x - (sheep.frame.size.width/2)) > world.scene?.size.width){
-                sheeps.removeAtIndex(sheeps.indexOf(sheep)!)
+                sheeps.remove(at: sheeps.index(of: sheep)!)
                 sheep.removeFromParent()
-                self.runAction(SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false))
+                self.run(SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false))
                 hud?.incrementScore()
                 continue
             }
@@ -135,7 +162,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //sheep died
             
             if(sheep.position.x < 30 && sheep.position.y < 460){
-                self.runAction(SKAction.playSoundFileNamed("explosion1.wav", waitForCompletion: false))
+                self.run(SKAction.playSoundFileNamed("explosion1.wav", waitForCompletion: false))
                 sheepDied(sheep, isWaterDeath: false)
                 continue
             }
@@ -148,21 +175,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func sheepDied(sheepNode: SKNode, isWaterDeath: Bool){
+    func sheepDied(_ sheepNode: SKNode, isWaterDeath: Bool){
         if(isWaterDeath){
         splash()
         }
-        sheeps.removeAtIndex(sheeps.indexOf(sheepNode)!)
+        sheeps.remove(at: sheeps.index(of: sheepNode)!)
         sheepNode.removeFromParent()
-        --lives
+        lives -= 1
         hud?.decrementLives()
-        if(lives == 0){GameOver().spawn(world, position: CGPointMake(100, 100), size: CGSizeMake(10, 10))
-           // self.scene?.paused = true
+        if(lives == 0){
+            GameOver().spawn(world, position: CGPoint(x: 100, y: 100), size: CGSize(width: 10, height: 10))
+        
+            //self.scene?.isPaused = true
             
         }
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         let otherBody :SKPhysicsBody
         let sheepBody : SKPhysicsBody
         
@@ -180,13 +209,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case PhysicsCategory.raft.rawValue:
             let sheep = sheepBody.node as! Sheep
             sheep.bleat()
-            sheep.physicsBody?.applyImpulse(CGVectorMake(50, 0))
+            sheep.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 0))
             
         case PhysicsCategory.rightGround.rawValue:
             //if ground collision is turned on reset the sheeps velocity to stop jumping
             let sheep = sheepBody.node as! Sheep
             if((sheep.physicsBody?.collisionBitMask)! & PhysicsCategory.rightGround.rawValue > 0){
-                sheep.physicsBody?.velocity = CGVectorMake(0, 0)
+                sheep.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 sheep.walk(200, completion: {sheep.removeFromParent()})
             }
         default:
@@ -195,7 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
     }
 }

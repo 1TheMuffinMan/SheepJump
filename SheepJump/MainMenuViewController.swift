@@ -20,7 +20,7 @@ class MainMenuViewController: UIViewController, TransitionProtocol {
             let skView = self.view as! SKView
             skView.ignoresSiblingOrder = true;
             
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
             skView.presentScene(scene)
         }
     }
@@ -33,7 +33,7 @@ class MainMenuViewController: UIViewController, TransitionProtocol {
     }
     
     func transitionToOtherViewController() {
-        let c = self.storyboard?.instantiateViewControllerWithIdentifier("Main2") as! GameViewController
+        let c = self.storyboard?.instantiateViewController(withIdentifier: "Main2") as! GameViewController
         //self.presentViewController(GameViewController(), animated: true, completion: nil)
         self.navigationController?.pushViewController(c, animated: true)
         

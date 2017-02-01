@@ -13,7 +13,7 @@ class MainMenuScene : SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        startButton = self.childNodeWithName("StartGame_Container")!
+        startButton = self.childNode(withName: "StartGame_Container")!
     }
     
     override init() {
@@ -22,13 +22,13 @@ class MainMenuScene : SKScene {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        startButton = self.childNodeWithName("StartGame_Container")!
+        startButton = self.childNode(withName: "StartGame_Container")!
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
-        let touchLocation = touch?.locationInNode(self)
-        if(startButton.containsPoint(touchLocation!)){
+        let touchLocation = touch?.location(in: self)
+        if(startButton.contains(touchLocation!)){
             let c = self.view?.window?.rootViewController as! MainMenuViewController
           
             c.transitionToOtherViewController()
